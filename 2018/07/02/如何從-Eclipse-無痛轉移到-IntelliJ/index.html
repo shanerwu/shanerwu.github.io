@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>如何從 Eclipse 無痛轉移到 IntelliJ | 瑄ㄦ粗乃丸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="建立 ProjectProject 定義 相對於 Eclipse 的 Workspace (工作區域) IntelliJ vs Eclipse 名詞定義對照     Eclipse IntelliJ IDEA     Workspace Project   Project Module   Facet Facet   Library Library   JRE SDK   Classpath va">
+<meta name="keywords" content="Java,IDE,IntelliJ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何從 Eclipse 無痛轉移到 IntelliJ">
+<meta property="og:url" content="http://yoursite.com/2018/07/02/如何從-Eclipse-無痛轉移到-IntelliJ/index.html">
+<meta property="og:site_name" content="瑄ㄦ粗乃丸">
+<meta property="og:description" content="建立 ProjectProject 定義 相對於 Eclipse 的 Workspace (工作區域) IntelliJ vs Eclipse 名詞定義對照     Eclipse IntelliJ IDEA     Workspace Project   Project Module   Facet Facet   Library Library   JRE SDK   Classpath va">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https://i.imgur.com/Q5SaUoQ.png">
+<meta property="og:image" content="https://i.imgur.com/vGJxzHf.png">
+<meta property="og:image" content="https://i.imgur.com/clXquZK.png">
+<meta property="og:image" content="https://i.imgur.com/otUFoz2.jpg">
+<meta property="og:image" content="https://i.imgur.com/4Hirqoo.png">
+<meta property="og:image" content="https://i.imgur.com/eTRMP0y.png">
+<meta property="og:image" content="https://i.imgur.com/K8esyCG.jpg">
+<meta property="og:image" content="https://i.imgur.com/iKlS3SD.png">
+<meta property="og:image" content="https://i.imgur.com/fjBeaIu.jpg">
+<meta property="og:image" content="https://i.imgur.com/Ty0ZDRV.gif">
+<meta property="og:image" content="https://i.imgur.com/dIjKWI4.jpg">
+<meta property="og:updated_time" content="2018-07-03T05:54:50.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何從 Eclipse 無痛轉移到 IntelliJ">
+<meta name="twitter:description" content="建立 ProjectProject 定義 相對於 Eclipse 的 Workspace (工作區域) IntelliJ vs Eclipse 名詞定義對照     Eclipse IntelliJ IDEA     Workspace Project   Project Module   Facet Facet   Library Library   JRE SDK   Classpath va">
+<meta name="twitter:image" content="https://i.imgur.com/Q5SaUoQ.png">
+  
+    <link rel="alternate" href="/atom.xml" title="瑄ㄦ粗乃丸" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">瑄ㄦ粗乃丸</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">廢文薈萃之地</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-如何從-Eclipse-無痛轉移到-IntelliJ" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/02/如何從-Eclipse-無痛轉移到-IntelliJ/" class="article-date">
+  <time datetime="2018-07-02T08:35:57.000Z" itemprop="datePublished">2018-07-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何從 Eclipse 無痛轉移到 IntelliJ
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+          
+      
+      
+          <h2 id="建立-Project"><a href="#建立-Project" class="headerlink" title="建立 Project"></a>建立 Project</h2><h3 id="Project-定義"><a href="#Project-定義" class="headerlink" title="Project 定義"></a>Project 定義</h3><ul>
+<li>相對於 Eclipse 的 Workspace (工作區域)</li>
+<li>IntelliJ vs Eclipse 名詞定義對照</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Eclipse</th>
+<th>IntelliJ IDEA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workspace</td>
+<td>Project</td>
+</tr>
+<tr>
+<td>Project</td>
+<td>Module</td>
+</tr>
+<tr>
+<td>Facet</td>
+<td>Facet</td>
+</tr>
+<tr>
+<td>Library</td>
+<td>Library</td>
+</tr>
+<tr>
+<td>JRE</td>
+<td>SDK</td>
+</tr>
+<tr>
+<td>Classpath variable</td>
+<td>Path variable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="建立-Project-1"><a href="#建立-Project-1" class="headerlink" title="建立 Project"></a>建立 Project</h3><ol>
+<li><p>開啟 IntelliJ<br><img src="https://i.imgur.com/Q5SaUoQ.png" alt=""></p>
+</li>
+<li><p>選取要建立的 Project 類型 (以 Empty Project 為例)<br><img src="https://i.imgur.com/vGJxzHf.png" alt=""></p>
+</li>
+<li><p>輸入 Project 位置與名稱 -&gt; Finish<br><img src="https://i.imgur.com/clXquZK.png" alt=""></p>
+<p> 完成後 Project 根目錄會長出 .idea 資料夾 (類似 Eclipse 的 .setting 資料夾)<br> <img src="https://i.imgur.com/otUFoz2.jpg" alt=""></p>
+</li>
+<li><p>設定 Project 內容 :<br>選取 SDK (指到本機的 JDK)、設置 Project language level<br><img src="https://i.imgur.com/4Hirqoo.png" alt=""></p>
+</li>
+<li><p>搭拉<br><img src="https://i.imgur.com/eTRMP0y.png" alt=""></p>
+</li>
+</ol>
+<h3 id="匯入-Maven-專案"><a href="#匯入-Maven-專案" class="headerlink" title="匯入 Maven 專案"></a>匯入 Maven 專案</h3><ol>
+<li><p>開啟 Maven 視窗<br>View &gt; Tool Windows &gt; Maven Projects<br>(或 Ctrl + Shift + A 輸入 Maven Projects)</p>
+</li>
+<li><p>點選 + 選擇 Maven 專案 (pom.xml)<br><img src="https://i.imgur.com/K8esyCG.jpg" alt=""></p>
+</li>
+<li><p>搭拉<br>(IntelliJ 在每個專案底下會產生一個 .iml 檔，可設定不顯示在專案視窗上)<br><img src="https://i.imgur.com/iKlS3SD.png" alt=""></p>
+</li>
+</ol>
+<h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><h3 id="Intellij-IDEA-Hide-iml-files"><a href="#Intellij-IDEA-Hide-iml-files" class="headerlink" title="Intellij IDEA. Hide .iml files"></a><a href="https://stackoverflow.com/questions/14251624/intellij-idea-hide-iml-files" target="_blank" rel="noopener">Intellij IDEA. Hide .iml files</a></h3><ul>
+<li>File &gt; Settings &gt; Editor &gt; File Types<ul>
+<li>Ignore files and folders 加入 <code>*.iml;*.idea;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="Configure-Intellij-to-use-default-Eclipse-Java-import-layout"><a href="#Configure-Intellij-to-use-default-Eclipse-Java-import-layout" class="headerlink" title="Configure Intellij to use default Eclipse Java import layout"></a><a href="https://odoepner.wordpress.com/2015/08/12/configure-intellij-to-use-default-eclipse-java-import-layout/" target="_blank" rel="noopener">Configure Intellij to use default Eclipse Java import layout</a></h3><ul>
+<li><p>File &gt; Settings &gt; Editor &gt; Code Style &gt; Java &gt; Imports</p>
+<ul>
+<li>Class count to use import with ‘*‘: 改為9999</li>
+<li>Names count to use static import with ‘*‘: 改為9999</li>
+<li><p>Import layout 改為如下 (設定成 Eclipse 預設 Import layout，以免與其他人造成衝突)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import static all other imports</span><br><span class="line">&lt;blank line&gt;</span><br><span class="line">import java.*</span><br><span class="line">&lt;blank line&gt;</span><br><span class="line">import javax.*</span><br><span class="line">&lt;blank line&gt;</span><br><span class="line">import org.*</span><br><span class="line">&lt;blank line&gt;</span><br><span class="line">import com.*</span><br><span class="line">&lt;blank line&gt;</span><br><span class="line">import all other imports</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="取消-Console-行數限制"><a href="#取消-Console-行數限制" class="headerlink" title="取消 Console 行數限制"></a>取消 Console 行數限制</h3><ul>
+<li><strong>無法透過內建修改</strong></li>
+<li>JetBrains\IntelliJ_IDEA\bin\idea.properties<ul>
+<li>將 idea.cycle.buffer.size 改為 disabled ==&gt; <code>idea.cycle.buffer.size=disabled</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><ul>
+<li>No more <del><a href="http://propedit.sourceforge.jp/eclipse/updates/" target="_blank" rel="noopener">Properties Editor</a></del></li>
+<li>File &gt; Settings &gt; Editor &gt; File Encodings<ul>
+<li>Properties Files &gt; 勾選 <code>Transparent native-to-ascii conversion</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="取消-Case-Sensitive"><a href="#取消-Case-Sensitive" class="headerlink" title="取消 Case Sensitive"></a>取消 Case Sensitive</h3><ul>
+<li>IntelliSense</li>
+<li>File &gt; Settings &gt; Editor &gt; Code Completion<ul>
+<li>Case sensitive completion &gt; None</li>
+</ul>
+</li>
+</ul>
+<h3 id="自動加入-移除-Import"><a href="#自動加入-移除-Import" class="headerlink" title="自動加入/移除 Import"></a>自動加入/移除 Import</h3><ul>
+<li>File &gt; Settings &gt; Editor &gt; Auto Import<ul>
+<li>勾選 <code>Optimize Imports on the Fly</code></li>
+</ul>
+</li>
+<li>也可以透過安裝 Plugin <code>Save Actions</code> 管理 Import</li>
+</ul>
+<h3 id="資料夾隨版控變更顏色"><a href="#資料夾隨版控變更顏色" class="headerlink" title="資料夾隨版控變更顏色"></a>資料夾隨版控變更顏色</h3><ul>
+<li>File &gt; Settings &gt; Version Control<ul>
+<li>Check “Show directories with changed descendants”</li>
+</ul>
+</li>
+</ul>
+<h3 id="EditorConfig"><a href="#EditorConfig" class="headerlink" title="EditorConfig"></a><a href="http://editorconfig.org/" target="_blank" rel="noopener">EditorConfig</a></h3><ul>
+<li>內建支援，不需任何外掛</li>
+</ul>
+<h3 id="Occurrence-顏色"><a href="#Occurrence-顏色" class="headerlink" title="Occurrence 顏色"></a>Occurrence 顏色</h3><ul>
+<li>File &gt; Settings &gt; Editor &gt; Color Scheme &gt; General<ul>
+<li>Code &gt; Identifier under caret 更改 Error Stripe mark</li>
+</ul>
+</li>
+</ul>
+<h2 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h2><h3 id="搜尋-amp-安裝-Plugins"><a href="#搜尋-amp-安裝-Plugins" class="headerlink" title="搜尋 &amp; 安裝 Plugins"></a>搜尋 &amp; 安裝 Plugins</h3><ul>
+<li>File &gt; Plugins &gt; Browse repositories &gt; Search Plugins &gt; Download and Install<br><img src="https://i.imgur.com/fjBeaIu.jpg" alt=""></li>
+</ul>
+<h3 id="常用-Plugins"><a href="#常用-Plugins" class="headerlink" title="常用 Plugins"></a>常用 Plugins</h3><ul>
+<li><a href="https://plugins.jetbrains.com/plugin/7642-save-actions" target="_blank" rel="noopener">Save Actions</a><ul>
+<li>可以觸發同 Eclipse save actions 相同效果</li>
+</ul>
+</li>
+<li><a href="https://plugins.jetbrains.com/plugin/6317-lombok-plugin" target="_blank" rel="noopener">Lombok Plugin</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/1065-checkstyle-idea" target="_blank" rel="noopener">CheckStyle-IDEA</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/8638-auto-filling-java-call-arguments" target="_blank" rel="noopener">Auto filling Java call arguments</a><ul>
+<li>透過 intention 自動填入方法參數名稱</li>
+<li><img src="https://i.imgur.com/Ty0ZDRV.gif" alt=""></li>
+</ul>
+</li>
+<li><a href="https://plugins.jetbrains.com/plugin/7105-moreunit" target="_blank" rel="noopener">MoreUnit</a></li>
+<li><a href="https://plugins.jetbrains.com/plugin/7275-codeglance" target="_blank" rel="noopener">CodeGlance</a><ul>
+<li>code minimap</li>
+</ul>
+</li>
+</ul>
+<h2 id="快捷鍵"><a href="#快捷鍵" class="headerlink" title="快捷鍵"></a>快捷鍵</h2><h3 id="Super-好用，直接輸入關鍵字來找是否有對應的功能"><a href="#Super-好用，直接輸入關鍵字來找是否有對應的功能" class="headerlink" title="Super 好用，直接輸入關鍵字來找是否有對應的功能"></a>Super 好用，直接輸入關鍵字來找是否有對應的功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Shift + A : Find Action</span><br></pre></td></tr></table></figure>
+<h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Shift Shift : Search Everywhere 什麼都找 (檔案、Class、Action、Symbol...)</span><br><span class="line">Ctrl + Shift + F :  Find in path (找文字出現地方)</span><br><span class="line">Alt + F7 : 查 Usage</span><br><span class="line">Ctrl + Alt + F7 : 顯示 Usage</span><br><span class="line"></span><br><span class="line">Alt + Enter : Intention Actions，例如建立區域變數、將執行結果存入變數等</span><br><span class="line">Ctrl + / : 單行註解</span><br><span class="line">Ctrl + Shift + / : 區塊註解</span><br><span class="line">Ctrl + E : 最近開啟的檔案</span><br><span class="line">Ctrl + G : 快速移動到指定行號</span><br><span class="line">Ctrl + H : type hierarchy</span><br><span class="line">Ctrl + Shift + H : method hierarchy</span><br><span class="line">Ctrl + Alt + O : Optimizing Imports</span><br><span class="line">Ctrl + Alt + I : 調整程式碼縮排</span><br><span class="line">Ctrl + Alt + L : 格式化程式碼</span><br><span class="line">Ctrl + Space : 基本自動完成</span><br><span class="line">Ctrl + Shift + Space : 智慧自動完成</span><br><span class="line">Ctrl + Alt + Space : 類別名稱完成 (可用於 static import 時，例如 assertTrue)</span><br><span class="line">Ctrl + Shift + Enter : 完成程式碼，例如加上分號、if 加上小括號大括號等</span><br><span class="line">Ctrl + B : Navigate Declaration</span><br><span class="line">Ctrl + Shift + B : Navigate Type Declaration (可跳到方法回傳值型態)</span><br><span class="line">Ctrl + Shift + U : Toggle Case</span><br><span class="line">    可加入 Ctrl + K, Ctrl + U (與Sublime相同)</span><br><span class="line">Ctrl + Alt + Shift + J : Select All Occurrences 選擇所有相同文字</span><br><span class="line">Ctrl + Shift + L : 尋找前一個occurrence</span><br><span class="line">    預設 F3 是尋找下一個 occurrence，建議追加 Ctrl + L</span><br><span class="line">Ctrl + Shift + N : Go to File (類似Sublime任意門)</span><br><span class="line">    Ctrl + N : Go to Class (用上面的就好了)</span><br><span class="line">Ctrl + Shift + Alt + T : 重構</span><br><span class="line"></span><br><span class="line">Ctrl + SHift + I : Quick Definition 查看定義(Source code)</span><br><span class="line">Ctrl + Q : Quick Documentation 查看 JavaDoc</span><br><span class="line"></span><br><span class="line">Ctrl + F4　: 關閉目前 Tab</span><br><span class="line">Alt + →　/　Alt + ←　: 切換前後 Tab</span><br></pre></td></tr></table></figure>
+<h3 id="已預設，但是修改會比較好"><a href="#已預設，但是修改會比較好" class="headerlink" title="已預設，但是修改會比較好"></a>已預設，但是修改會比較好</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Y : 刪除整行，改為 Ctrl + Shift + K (與Sublime相同)</span><br><span class="line">    操作習慣上，Ctrl + Y 是復原，但預設要用 Ctrl + Shift + Z</span><br><span class="line">Ctrl + D : 複製整行或已選擇文字，改為 Ctrl + Alt + D</span><br><span class="line">    並且將此行改給 Add Selection for Next Occurrence</span><br></pre></td></tr></table></figure>
+<h3 id="可能不太常用"><a href="#可能不太常用" class="headerlink" title="可能不太常用"></a>可能不太常用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + J : 開啟 Live Template</span><br></pre></td></tr></table></figure>
+<h3 id="未預設，需自訂"><a href="#未預設，需自訂" class="headerlink" title="未預設，需自訂"></a>未預設，需自訂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Alt + ↑ : Clone Caret Above (複製游標往上，方便區塊編輯)</span><br><span class="line">Ctrl + Alt + ↓ : Clone Caret Below (複製游標往下，方便區塊編輯)</span><br></pre></td></tr></table></figure>
+<h3 id="使用-Eclipse-預設快捷鍵"><a href="#使用-Eclipse-預設快捷鍵" class="headerlink" title="使用 Eclipse 預設快捷鍵"></a>使用 Eclipse 預設快捷鍵</h3><ul>
+<li>建議還是習慣 IntelliJ 預設快捷鍵，能夠使用的快捷鍵較多</li>
+<li>File &gt; Settings &gt; Keymap<br><img src="https://i.imgur.com/dIjKWI4.jpg" alt=""></li>
+</ul>
+<h2 id="其他小小技巧"><a href="#其他小小技巧" class="headerlink" title="其他小小技巧"></a>其他小小技巧</h2><ul>
+<li><a href="https://www.jetbrains.com/help/idea/auto-completing-code.html#negate" target="_blank" rel="noopener">Negate an expression</a><ul>
+<li>用 ! 選方法，會自動於方法最前面加上 !</li>
+</ul>
+</li>
+<li><a href="https://blog.jetbrains.com/idea/2014/03/postfix-completion/" target="_blank" rel="noopener">Postfix Code Completion</a><ul>
+<li>使用 . 加上 if 區塊</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="參考資源"><a href="#參考資源" class="headerlink" title="參考資源"></a>參考資源</h4><ul>
+<li><a href="https://www.jetbrains.com/help/idea/migrating-from-eclipse-to-intellij-idea.html" target="_blank" rel="noopener">Migrating From Eclipse to IntelliJ IDEA</a></li>
+</ul>
+<h4 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h4><ul>
+<li>JDK 1.8</li>
+<li>IntelliJ IDEA Community Edition 2017.3.4 x64<ul>
+<li>Community 比 Ultimate 少了非常多功能，尤其是 JavaEE<br>例如沒有支援 Tomcat (但可以透過安裝 Maven Plugins 使用)</li>
+</ul>
+</li>
+<li>IntelliJ IDEA 2017.3.4 x64 (Educational License)</li>
+<li>Maven Project</li>
+</ul>
+
+          </div>
+      
+    <footer class="article-footer">
+      <div>
+        <a data-url="http://yoursite.com/2018/07/02/如何從-Eclipse-無痛轉移到-IntelliJ/" data-id="cjj5fe0z200013ghv56muq2c3" class="article-share-link">Share</a>
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDE/">IDE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IntelliJ/">IntelliJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </div>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/02/測試/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          測試
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/02/測試/">測試</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/02/如何從-Eclipse-無痛轉移到-IntelliJ/">如何從 Eclipse 無痛轉移到 IntelliJ</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/廢文/">廢文</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntelliJ/">IntelliJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IDE/" style="font-size: 10px;">IDE</a> <a href="/tags/IntelliJ/" style="font-size: 10px;">IntelliJ</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Shaner Wu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
